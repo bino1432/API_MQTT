@@ -2,7 +2,7 @@ const express = require("express")
 const server = express();
 
 server.get("/", (req,res) => {
-    return res.json({mensagem: "deu certo poha"})
+    return res.json({mensagem: "API funcionado"})
 })
 
 server.listen(3000, () => {
