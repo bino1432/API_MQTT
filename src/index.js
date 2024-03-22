@@ -43,7 +43,15 @@ function connectToBroker() {
     );
   });
 }
- 
+
+let MQTTObjeto = {
+  led1: "",
+  led2: "",
+  led3: "",
+  TempDef: "",
+  TempAtl: ""
+}
+
 function subscribeToTopic(topic) {
   console.log(`Subscribing to Topic: ${topic}`);
 
@@ -58,7 +66,7 @@ subscribeToTopic("temp/def");
 subscribeToTopic("temp/atl");
 
 server.get("/", (req,res) => {
-    return res.json({mensagem: "API funcionado"})
+    return res.json({MQTTObjeto})
 })
 
 server.listen(3000, () => {
