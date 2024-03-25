@@ -41,9 +41,6 @@ function connectToBroker() {
     console.log(
       "Received Message: " + message.toString() + "\nOn topic: " + topic
     );
-    if (topic == "led/1"){
-      MQTTObjeto.led1 = message.toString;
-    }
   });
 }
 
