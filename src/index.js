@@ -5,14 +5,6 @@ const mqtt = require('mqtt');
 
 let mqttClient;
 
-let MQTTObjeto = {
-  led1: "0",
-  led2: "0",
-  led3: "0",
-  TempDef: "0.0",
-  TempAtl: "0.0"
-}
-
 function connectToBroker() {
   const clientId = "bino1432";
 
@@ -43,6 +35,14 @@ function connectToBroker() {
   mqttClient.on("connect", () => {
     console.log("Client connected:" + clientId);
   });
+
+  let MQTTObjeto = {
+    led1: "0",
+    led2: "0",
+    led3: "0",
+    TempDef: "0.0",
+    TempAtl: "0.0"
+  }
 
   // Received Message
   mqttClient.on("message", (topic, message) => {
