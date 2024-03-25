@@ -75,7 +75,7 @@ subscribeToTopic("temp/def");
 subscribeToTopic("temp/atl");
 
 server.get("/", (req,res) => {
-    return res.json(MQTTObjeto)
+    res.json(MQTTObjeto)
 })
 
 server.listen(3000, () => {
