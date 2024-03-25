@@ -39,7 +39,7 @@ function connectToBroker() {
   // Received Message
   mqttClient.on("message", (topic, message) => {
     console.log(
-      "Received Message: " + message.toString() + "\nOn topic: " + topic
+      "Received Message: " + message.toString() + "\nOn aaaaaaaaaaaaaaaaaa: " + topic
     );
   });
 }
