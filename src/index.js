@@ -5,7 +5,7 @@ const mqtt = require('mqtt');
 
 let mqttClient;
 
-let MQTTObjeto = {
+const MQTTObjeto = {
   led1: "0",
   led2: "0",
   led3: "0",
@@ -53,7 +53,16 @@ function connectToBroker() {
     if(topic == "led/2"){
       MQTTObjeto.led2 = message.toString()
     }
-  
+    if (topic == "led/3"){
+      MQTTObjeto.led3 = message.toString()
+    }
+    if(topic == "temp/atl"){
+      MQTTObjeto.TempAtl = message.toString()
+    }
+    if (topic == "temp/def"){
+      MQTTObjeto.TempDef = message.toString()
+    }
+
     console.log(
       "Received Message: " + message.toString() + "\nOn topic: " + topic
        + "\nO led 1 é: " + MQTTObjeto.led1 + "\nO led 2 é: " + MQTTObjeto.led2
