@@ -65,7 +65,6 @@ function connectToBroker() {
 
     console.log(
       "Received Message: " + message.toString() + "\nOn topic: " + topic
-       + "\nO led 1 é: " + MQTTObjeto.led1 + "\nO led 2 é: " + MQTTObjeto.led2
     );
   });
 }
