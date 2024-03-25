@@ -48,10 +48,10 @@ function connectToBroker() {
   mqttClient.on("message", (topic, message) => {
     
     if (topic == "led/1"){
-      MQTTObjeto.led1 = message.toString
+      MQTTObjeto.led1 = message.toString()
     }
     if(topic == "led/2"){
-      MQTTObjeto.led2 = message.toString
+      MQTTObjeto.led2 = message.toString()
     }
   
     console.log(
