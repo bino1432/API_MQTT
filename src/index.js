@@ -45,11 +45,11 @@ function connectToBroker() {
 }
 
 let MQTTObjeto = {
-  led1: "",
-  led2: "",
-  led3: "",
-  TempDef: "",
-  TempAtl: ""
+  led1: "0",
+  led2: "0",
+  led3: "0",
+  TempDef: "0.0",
+  TempAtl: "0.0"
 }
 
 function subscribeToTopic(topic) {
