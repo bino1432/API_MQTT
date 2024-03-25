@@ -89,6 +89,11 @@ server.get("/", (req,res) => {
     res.json(MQTTObjeto)
 })
 
-server.listen(3000, () => {
-    console.log("Servidor online")
+// server.listen(3000, () => {
+//     console.log("Servidor online")
+// })
+
+const PORT = process.env.PORT || 8000
+server.listen(PORT, () => {
+  console.log("Servidor online")
 })
