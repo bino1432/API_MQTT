@@ -38,8 +38,17 @@ function connectToBroker() {
 
   // Received Message
   mqttClient.on("message", (topic, message) => {
+    
+    if (topic == "led/1"){
+      MQTTObjeto.led1 = message
+    }
+    if(topic == "led/2"){
+      MQTTObjeto.led2 = message
+    }
+  
     console.log(
-      "Received Message: " + message.toString() + "\nOn aaaaaaaaaaaaaaaaaa: " + topic
+      "Received Message: " + message.toString() + "\nOn topic: " + topic
+       + "\nO led 1 é: " + MQTTObjeto.led1 + "\nO led 2 é: " + MQTTObjeto.led2
     );
   });
 }
@@ -66,7 +75,7 @@ subscribeToTopic("temp/def");
 subscribeToTopic("temp/atl");
 
 server.get("/", (req,res) => {
-    return res.json({MQTTObjeto})
+    return res.json(MQTTObjeto)
 })
 
 server.listen(3000, () => {
