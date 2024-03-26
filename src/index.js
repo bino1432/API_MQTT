@@ -88,7 +88,7 @@ subscribeToTopic("temp/atl");
 server.use(express.json())
 server.use(cors())
 
-server.get("/", (req,res) => {
+server.get("/info", (req,res) => {
     res.json(MQTTObjeto)
 })
 
