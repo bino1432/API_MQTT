@@ -84,8 +84,10 @@ subscribeToTopic("led/2");
 subscribeToTopic("led/3");
 subscribeToTopic("temp/def");
 subscribeToTopic("temp/atl");
+
 server.use(express.json())
 server.use(cors())
+
 server.get("/", (req,res) => {
     res.json(MQTTObjeto)
 })
