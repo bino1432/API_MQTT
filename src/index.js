@@ -49,19 +49,19 @@ function connectToBroker() {
   mqttClient.on("message", (topic, message) => {
     
     if (topic == "led/1"){
-      MQTTObjeto.led1 = message
+      MQTTObjeto.led1 = message.toString()
     }
     if(topic == "led/2"){
-      MQTTObjeto.led2 = message
+      MQTTObjeto.led2 = message.toString()
     }
     if (topic == "led/3"){
-      MQTTObjeto.led3 = message
+      MQTTObjeto.led3 = message.toString()
     }
     if(topic == "temp/atl"){
-      MQTTObjeto.TempAtl = message
+      MQTTObjeto.TempAtl = message.toString()
     }
     if (topic == "temp/def"){
-      MQTTObjeto.TempDef = message
+      MQTTObjeto.TempDef = message.toString()
     }
 
     console.log(
