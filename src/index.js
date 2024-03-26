@@ -1,5 +1,6 @@
 const express = require("express")
 const server = express();
+const cors = require("cors")
 
 const mqtt = require('mqtt');
 
@@ -83,7 +84,8 @@ subscribeToTopic("led/2");
 subscribeToTopic("led/3");
 subscribeToTopic("temp/def");
 subscribeToTopic("temp/atl");
-
+server.use(express.json())
+server.use(cors())
 server.get("/", (req,res) => {
     res.json(MQTTObjeto)
 })
@@ -92,7 +94,7 @@ server.get("/", (req,res) => {
 //     console.log("Servidor online")
 // })
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8001
 server.listen(PORT, () => {
   console.log("Servidor online")
 })
