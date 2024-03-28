@@ -6,10 +6,13 @@ const mqtt = require('mqtt');
 
 let mqttClient;
 
-const MQTTObjeto = {
+const objetoLed = {
   led1: 0,
   led2: 0,
-  led3: 0,
+  led3: 0
+}
+
+const objetoTemp = {
   TempDef: 0.0,
   TempAtl: 0.0
 }
@@ -49,19 +52,19 @@ function connectToBroker() {
   mqttClient.on("message", (topic, message) => {
     
     if (topic == "led/1"){
-      MQTTObjeto.led1 = message.toString()
+      objetoLed.led1 = message.toString()
     }
     if(topic == "led/2"){
-      MQTTObjeto.led2 = message.toString()
+      objetoLed.led2 = message.toString()
     }
     if (topic == "led/3"){
-      MQTTObjeto.led3 = message.toString()
+      objetoLed.led3 = message.toString()
     }
     if(topic == "temp/atl"){
-      MQTTObjeto.TempAtl = message.toString()
+      objetoTemp.TempAtl = message.toString()
     }
     if (topic == "temp/def"){
-      MQTTObjeto.TempDef = message.toString()
+      objetoTemp.TempDef = message.toString()
     }
 
     console.log(
@@ -88,8 +91,12 @@ subscribeToTopic("temp/atl");
 server.use(express.json())
 server.use(cors())
 
-server.get("/info", (req,res) => {
-    res.json(MQTTObjeto)
+server.get("/led", (req,res) => {
+    res.json(objetoLed)
+})
+
+server.get("/temp", (req,res) => {
+  res.json(objetoTemp)
 })
 
 // server.listen(3000, () => {
